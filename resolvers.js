@@ -27,4 +27,23 @@ export const resolvers = {
       return _db.reviews.find((review) => id === review.id);
     },
   },
+  Game: {
+    reviews(parent) {
+      return _db.reviews.filter((r) => r.game_id === parent.id);
+    },
+  },
+  Author: {
+    reviews(parent) {
+      return _db.reviews.filter((r) => r.author_id === parent.id);
+    },
+  },
+  Review: {
+    game(parent) {
+      return _db.games.find((g) => g.id === parent.game_id);
+    },
+
+    author(parent) {
+      return _db.authors.find((a) => a.id === parent.author_id);
+    },
+  },
 };
