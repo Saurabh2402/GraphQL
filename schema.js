@@ -34,4 +34,22 @@ type Query{
     author(id:ID!):Author
 
 }
+
+input AddGameInput{
+    title:String!
+    platform:[String!]!
+}
+
+input UpdateGameInput{
+    title:String
+    platform:[String!]
+}
+
+type Mutation{
+    deleteGame(id:ID!):[Game]
+
+    addGame(inp:AddGameInput!):Game
+
+    updateGame(id:ID!,inp:UpdateGameInput!):Game
+}
 `;
